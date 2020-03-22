@@ -27,9 +27,13 @@ public class EntityDamage : MonoBehaviour
         if(hp<=0){ Die();}
     }
     
-    void Attack(Vector3 mousePosition)
+    public void Attack(Vector2 location)
     {
-        //TODO: Checks is there any collider on mousePosition. If it is, it uses on this collider GiveDamage() function
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(location,0.001f);
+        foreach(Collider2D collider in colliders)
+        {
+            GiveDamage(collider.gameObject);
+        }
     }
 
     void GiveDamage(GameObject target)
