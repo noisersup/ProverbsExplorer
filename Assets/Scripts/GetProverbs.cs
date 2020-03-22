@@ -17,5 +17,10 @@ public class GetProverbs : MonoBehaviour
     void ReadProverbs()
     {
         Debug.Log(proverbs);
+        GameObject canvas = GameObject.Find("Canvas");
+        CanvasProxy CP = canvas.GetComponent<CanvasProxy>();
+        CP.image.enabled = true;
+        CP.text.enabled = true;
+        CP.text.text = proverbs;
     }
 }
