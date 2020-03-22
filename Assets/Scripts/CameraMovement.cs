@@ -11,7 +11,11 @@ public class CameraMovement : MonoBehaviour
     
     void Start()
     {
+        transform.position = new Vector3(target.transform.position.x + offset.x,
+                                         target.transform.position.y + offset.y,
+                                         transform.position.z);
 
+        Camera.main.orthographicSize = distance;
     }
 
     void LateUpdate()
