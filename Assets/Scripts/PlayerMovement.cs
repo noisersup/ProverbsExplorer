@@ -6,16 +6,12 @@ public class PlayerMovement : MonoBehaviour
 {
     public float move_speed = 5f;
 
-    void Update()
+    public void MoveH( float horizontal )
     {
-        if(Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
-        {
-            transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * move_speed * Time.deltaTime, 0f, 0f));
-        }
-
-        if(Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
-        {
-            transform.Translate(new Vector3(0f, Input.GetAxisRaw("Vertical") * move_speed * Time.deltaTime, 0f));
-        }
+        transform.Translate(new Vector3(horizontal * move_speed * Time.deltaTime, 0));
+    }
+    public void MoveV(float vertical )
+    {
+        transform.Translate(new Vector3(0, vertical * move_speed * Time.deltaTime));
     }
 }
