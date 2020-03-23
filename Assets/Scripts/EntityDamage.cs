@@ -46,5 +46,6 @@ public class EntityDamage : MonoBehaviour
     void Die()
     {
         Debug.Log(gameObject.name+" zaliczył zgona");
+	Destroy(gameObject);
     }
 }
