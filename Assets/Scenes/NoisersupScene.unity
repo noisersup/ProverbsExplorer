@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 407391257}
   - component: {fileID: 407391263}
   - component: {fileID: 407391262}
+  - component: {fileID: 407391264}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -422,9 +423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9934bdbf6ee1af145a211b2c8dfb2766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_hp: 10
-  player_damage: 3
-  range: 3
 --- !u!61 &407391258
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -438,7 +436,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.08}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -449,7 +447,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3333334, y: 1.3333334}
+  m_Size: {x: 0.48, y: 0.98}
   m_EdgeRadius: 0
 --- !u!50 &407391259
 Rigidbody2D:
@@ -564,6 +562,22 @@ MonoBehaviour:
   movement: {fileID: 407391262}
   target: {fileID: 888885545}
   max_range: 3
+--- !u!58 &407391264
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407391256}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03, y: -0.08}
+  serializedVersion: 2
+  m_Radius: 0.91
 --- !u!1 &475645727
 GameObject:
   m_ObjectHideFlags: 0
@@ -3320,6 +3334,7 @@ GameObject:
   - component: {fileID: 888885554}
   - component: {fileID: 888885553}
   - component: {fileID: 888885551}
+  - component: {fileID: 888885552}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3445,7 +3460,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.15}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3471,6 +3486,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move_speed: 5
+--- !u!95 &888885552
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888885545}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d95698606de934aacb317e8accf0d05b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &888885553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3483,9 +3517,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9934bdbf6ee1af145a211b2c8dfb2766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_hp: 20
-  player_damage: 5
-  range: 0
 --- !u!114 &888885554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3500,6 +3531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_movement: {fileID: 888885551}
   player_damage: {fileID: 888885553}
+  animator: {fileID: 888885552}
 --- !u!1 &894958328
 GameObject:
   m_ObjectHideFlags: 0

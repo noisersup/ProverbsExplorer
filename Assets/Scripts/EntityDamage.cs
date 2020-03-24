@@ -4,11 +4,45 @@ using UnityEngine;
 
 public class EntityDamage : MonoBehaviour
 {
-    public int max_hp;  //temporary, until global config introduction
+
+    protected int enemy_hp = 10;
+    protected int player_damage = 5;
+    protected bool player_colide = false;
+
+    void Update()
+    {
+        if(player_colide && Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage();
+            Debug.Log(enemy_hp);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            player_colide = true;
+        }
+    }
+
+    void TakeDamage()
+    {
+        if(enemy_hp > 0)
+        {
+            enemy_hp -= player_damage;
+            player_colide = false;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    /*public int max_hp;  //temporary, until global config introduction
     public int player_damage;   //temporary, until global config introduction
     public int range;   //temporary, until global config introduction
 
-    int hp;
+    private int hp;
 
     void Start()
     {
@@ -47,5 +81,5 @@ public class EntityDamage : MonoBehaviour
     {
         Debug.Log(gameObject.name+" zaliczył zgona");
 	Destroy(gameObject);
-    }
+    }*/
 }
