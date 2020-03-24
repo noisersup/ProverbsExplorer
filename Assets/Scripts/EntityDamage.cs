@@ -31,7 +31,7 @@ public class EntityDamage : MonoBehaviour
         if(enemy_hp > 0)
         {
             enemy_hp -= player_damage;
-            player_colide = false;
+            //player_colide = false;
         }
         else
         {
