@@ -563,6 +563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 407391262}
   target: {fileID: 888885545}
+  max_range: 3
 --- !u!1 &475645727
 GameObject:
   m_ObjectHideFlags: 0
