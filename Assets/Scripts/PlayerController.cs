@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public PlayerMovement player_movement;
+    public EntityMovement player_movement;
     public EntityDamage player_damage;
 
     void Update()

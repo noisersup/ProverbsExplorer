@@ -18,7 +18,6 @@ public class DialogBox : MonoBehaviour
     }
     void Update()
     {
-        if(debug_box) Prompt("Lorem ipsum dolor sit amet, consectetur adipiscing elit. ");
         if(Input.GetKey("space") && open) Close();
     }
     public void Prompt(string content)
@@ -27,10 +26,16 @@ public class DialogBox : MonoBehaviour
         box.SetActive(true);
         text_box.text = content;
     }
+    /*public string Prompt(string content, string[] choices){
+        Prompt(content);
+        foreach(string choice in choices){
+            
+        }
+    }*/     
+
     void Close()
     {
         open=false;
         box.SetActive(false);
     }
-
 }
