@@ -5,54 +5,28 @@ using UnityEngine;
 public class EntityDamage : MonoBehaviour
 {
 
-    protected int enemy_hp = 10;
-    protected int player_damage = 5;
-    protected bool player_colide = false;
-
-    void Update()
-    {
-        if(player_colide && Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage();
-            Debug.Log(enemy_hp);
-        }
-    }
-
+    [SerializeField] int max_hp=10;
+    [SerializeField] int damage=5;
+    
+    int hp;
+     List <BoxCollider2D> collisions = new List <BoxCollider2D>();
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
-        {
-            player_colide = true;
-        }
+        if(other.GetType() == typeof(BoxCollider2D)) collisions.Add((BoxCollider2D) other);  
     }
-
-    void TakeDamage()
-    {
-        if(enemy_hp > 0)
-        {
-            enemy_hp -= player_damage;
-            //player_colide = false;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+    void OnTriggerExit2D(Collider2D other){
+        if(other.GetType() == typeof(BoxCollider2D)) collisions.Remove((BoxCollider2D) other);  
     }
-    /*public int max_hp;  //temporary, until global config introduction
-    public int player_damage;   //temporary, until global config introduction
-    public int range;   //temporary, until global config introduction
-
-    private int hp;
-
     void Start()
     {
         hp = max_hp;
     }
-    void Update()
+    
+    public void Attack(Vector2 location)
     {
-        if(Input.GetMouseButtonDown(0)) Attack(Input.mousePosition);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(location,0.001f);
+        if(colliders.Length>0 && collisions.Contains((BoxCollider2D) colliders[0].GetComponent("BoxCollider2D")))  GiveDamage(colliders[0].gameObject);
     }
-
     public void TakeDamage(int taken_damage)
     {
         if(taken_damage<0) return;
@@ -61,25 +35,15 @@ public class EntityDamage : MonoBehaviour
         if(hp<=0){ Die();}
     }
     
-    public void Attack(Vector2 location)
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(location,0.001f);
-        foreach(Collider2D collider in colliders)
-        {
-            GiveDamage(collider.gameObject);
-        }
-    }
-
     void GiveDamage(GameObject target)
     {
         EntityDamage target_damage_system = (EntityDamage) target.GetComponent("EntityDamage");
-        if(target_damage_system==null || target.tag == gameObject.tag) return;
+        if(target_damage_system==null || target.CompareTag(gameObject.tag)) return;
 
-        target_damage_system.TakeDamage(player_damage);
+        target_damage_system.TakeDamage(damage);
     }
     void Die()
     {
-        Debug.Log(gameObject.name+" zaliczył zgona");
-	Destroy(gameObject);
-    }*/
+	    Destroy(gameObject);
+    }
 }

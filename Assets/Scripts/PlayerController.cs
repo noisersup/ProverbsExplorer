@@ -12,11 +12,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         player_movement.Move(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
-
-        /*if(Input.GetMouseButtonDown(0))
-        {
-            player_damage.Attack(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        }*/
+        if(Input.GetMouseButtonDown(0)) player_damage.Attack(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
         Flip();
 
