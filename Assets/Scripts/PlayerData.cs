@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class PlayerData
 {
-    public int papper_quantiti = 123;
+    public string proverbs_full_text;
 }

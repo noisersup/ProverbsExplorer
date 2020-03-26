@@ -6,7 +6,7 @@ using System.IO;
 public class DataManager : MonoBehaviour
 {
     public PlayerData data;
-    public string file = "player";
+    public string file = "player.json";
 
     public void Save()
     {

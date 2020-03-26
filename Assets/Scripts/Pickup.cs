@@ -6,7 +6,8 @@ public class Pickup : MonoBehaviour
 {
     private Inventory inventory;
     public GameObject itemButton;
-    public string proverbs_text = "null";
+    public string proverbs_text; //save to json
+    DataManager DM;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class Pickup : MonoBehaviour
                 {
                     inventory.isFull[i] = true;
                     Instantiate(itemButton, inventory.slots[i].transform, false);
+                    DM.Save();
                     Destroy(gameObject);
                     break;
                 }
