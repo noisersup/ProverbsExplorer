@@ -16,6 +16,15 @@ public class PlayerController : MonoBehaviour
 
         Flip();
 
+        IsAttack();
+
+        animator.SetFloat("move_x", Input.GetAxisRaw("Horizontal"));
+        animator.SetFloat("move_y", Input.GetAxisRaw("Vertical"));
+        animator.SetBool("attack_right_side", is_attack);
+    }
+
+    void IsAttack()
+    {
         if(Input.GetKeyDown(KeyCode.Space))
         {
             is_attack = true;
@@ -24,10 +33,6 @@ public class PlayerController : MonoBehaviour
         {
             is_attack = false;
         }
-
-        animator.SetFloat("move_x", Input.GetAxisRaw("Horizontal"));
-        animator.SetFloat("move_y", Input.GetAxisRaw("Vertical"));
-        animator.SetBool("attack_right_side", is_attack);
     }
 
     void Flip()

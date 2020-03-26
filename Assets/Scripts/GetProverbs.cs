@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class GetProverbs : MonoBehaviour
 {
-    private string proverbs = Pickup.Text;
+    private string proverbs_text; //read from json
     public Button button;
+    private Pickup pickup;
 
     void Start()
     {
@@ -16,11 +17,10 @@ public class GetProverbs : MonoBehaviour
 
     void ReadProverbs()
     {
-        Debug.Log(proverbs);
         GameObject canvas = GameObject.Find("Canvas");
         CanvasProxy CP = canvas.GetComponent<CanvasProxy>();
         CP.image.enabled = true;
         CP.text.enabled = true;
-        CP.text.text = proverbs;
+        CP.text.text = "pierwsza część: " + pickup.proverbs_text;
     }
 }
