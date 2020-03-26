@@ -9,8 +9,14 @@ public class EnemyController : MonoBehaviour
     [SerializeField] GameObject target;
     [SerializeField] float max_range;
 
+
+    bool cooldown_active = false;
+    float cooldown_progress = 0;
+
+
     bool target_collided = false;
     List <BoxCollider2D> collisions = new List <BoxCollider2D>();
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject == target) target_collided = true;  
@@ -19,9 +25,11 @@ public class EnemyController : MonoBehaviour
     {
         if(other.gameObject == target) target_collided = false;
     }
+    
     void Update()
     {   
-        if(target_collided) 
+        CooldownTime();
+        if(target_collided && !cooldown_active) 
         {
             AttackTarget(target);
         }
@@ -37,5 +45,20 @@ public class EnemyController : MonoBehaviour
     void AttackTarget(GameObject target)
     {
         damage_system.Attack(target.transform.position);
+        cooldown_active = true;
+    }
+    void CooldownTime(){
+        if(cooldown_active)
+        {
+            cooldown_progress += Time.deltaTime;
+            if(cooldown_progress >= MeasurmentError(damage_system.GetCooldown()))
+            {
+                cooldown_active = false;
+                cooldown_progress = 0;
+            }
+        }
+    }
+    float MeasurmentError(float number){
+        return number + Random.Range(0.1f, 10f);
     }
 }

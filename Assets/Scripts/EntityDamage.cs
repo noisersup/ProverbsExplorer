@@ -8,7 +8,7 @@ public class EntityDamage : MonoBehaviour
     [SerializeField] int max_hp=10;
     [SerializeField] int damage=5;
     [SerializeField] float cooldown=2;
-
+    
     int hp;
     bool cooldown_active = false;
     float cooldown_progress = 0;
@@ -58,7 +58,9 @@ public class EntityDamage : MonoBehaviour
         Debug.Log("["+gameObject.name+"] HP:"+hp+"/"+max_hp+" (-"+taken_damage+")");
         if(hp<=0){ Die();}
     }
-    
+    public float GetCooldown(){return cooldown;}
+
+
     void GiveDamage(GameObject target)
     {
         EntityDamage target_damage_system = (EntityDamage) target.GetComponent("EntityDamage");
