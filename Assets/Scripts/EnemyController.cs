@@ -26,7 +26,9 @@ public class EnemyController : MonoBehaviour
     {
         if(other.gameObject == target) target_collided = false;
     }
-    
+    void Start(){
+        target = GameObject.FindGameObjectWithTag("Player");
+    }
     void Update()
     {   
         float distance = Mathf.Sqrt(((target.transform.position.x - transform.transform.position.x) * (target.transform.position.x - transform.transform.position.x))+
