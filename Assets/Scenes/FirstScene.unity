@@ -706,6 +706,7 @@ MonoBehaviour:
   itemButton: {fileID: 8331856250210578343, guid: f067656766f71bf58abdcbcff90ce893,
     type: 3}
   proverbs_text: 
+  DM: {fileID: 0}
 --- !u!58 &531149001
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -955,6 +956,7 @@ MonoBehaviour:
   itemButton: {fileID: 2172837899641023195, guid: 85c1446a999fb4f14a874437fa5e9e19,
     type: 3}
   proverbs_text: "Gdyby k\xF3zka si\u0119 nie wyjeba\u0142a...."
+  DM: {fileID: 1394822070}
 --- !u!212 &645700193
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1104,6 +1106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9934bdbf6ee1af145a211b2c8dfb2766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  max_hp: 10
+  damage: 5
+  cooldown: 2
 --- !u!114 &834582707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1535,6 +1540,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1394822069}
+  - component: {fileID: 1394822070}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -1556,6 +1562,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1394822070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394822068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b011069f01ef38240bde50ffba1947a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  file: player.json
 --- !u!1 &1564605769
 GameObject:
   m_ObjectHideFlags: 0

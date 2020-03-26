@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class PlayerData
 {
-    public string proverbs_full_text;
+    public string proverbs_full_text = "test";
 }

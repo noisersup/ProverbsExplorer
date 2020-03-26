@@ -7,7 +7,7 @@ public class Pickup : MonoBehaviour
     private Inventory inventory;
     public GameObject itemButton;
     public string proverbs_text; //save to json
-    DataManager DM;
+    public DataManager DM;
 
     private void Start()
     {

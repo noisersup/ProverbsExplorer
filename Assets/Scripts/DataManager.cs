@@ -11,6 +11,7 @@ public class DataManager : MonoBehaviour
     public void Save()
     {
         string json = JsonUtility.ToJson(data);
+        Debug.Log(json);
         WriteToFile(file, json);
     }
 
@@ -26,7 +27,7 @@ public class DataManager : MonoBehaviour
         string path = GetFilePath(file_name);
         FileStream filestream = new FileStream(path, FileMode.Create);
 
-        using(StreamWriter writer = new StreamWriter(file_name))
+        using(StreamWriter writer = new StreamWriter(filestream))
         {
             writer.Write(json);
         }
