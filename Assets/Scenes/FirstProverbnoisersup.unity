@@ -253,7 +253,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 189583584}
-  CP: {fileID: 1931019956}
 --- !u!1 &300426414 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6413154403360510260, guid: 476d1c3a1597c9a4598e9ff391abdfc1,
@@ -368,7 +367,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446416491}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.01755, y: -10.416587, z: 0}
+  m_LocalPosition: {x: 2.39, y: -3.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -23058,7 +23057,7 @@ GameObject:
   - component: {fileID: 1931019956}
   - component: {fileID: 1931019961}
   m_Layer: 5
-  m_Name: 'MainCanvas '
+  m_Name: MainCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

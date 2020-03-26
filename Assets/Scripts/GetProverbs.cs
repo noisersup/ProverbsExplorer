@@ -8,7 +8,6 @@ public class GetProverbs : MonoBehaviour
     private string proverbs_text;
     public Button button;
     private Pickup pickup;
-    public CanvasProxy CP;
 
     void Start()
     {
@@ -18,7 +17,10 @@ public class GetProverbs : MonoBehaviour
 
     void ReadProverbs()
     {
+        GameObject canvas = GameObject.Find("MainCanvas");
+        CanvasProxy CP = canvas.GetComponent<CanvasProxy>();
         CP.image.enabled = true;
         CP.text.enabled = true;
+        CP.text.text = pickup.proverbs_text;
     }
 }
