@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] EntityMovement movement;
     [SerializeField] EntityDamage damage_system;
     [SerializeField] GameObject target;
+    [SerializeField] float range_of_view=5f;
     [SerializeField] float max_range;
 
 
@@ -28,14 +29,16 @@ public class EnemyController : MonoBehaviour
     
     void Update()
     {   
-        CooldownTime();
-        if(target_collided && !cooldown_active) 
-        {
-            AttackTarget(target);
+        float distance = Mathf.Sqrt(((target.transform.position.x - transform.transform.position.x) * (target.transform.position.x - transform.transform.position.x))+
+                                    ((target.transform.position.y - transform.transform.position.y) * (target.transform.position.y - transform.transform.position.y)));
+        if( distance <= range_of_view){
+            CooldownTime();
+            if(target_collided && !cooldown_active) 
+            {
+                AttackTarget(target);
+            }
+            if(distance >= max_range) FollowTarget(target);
         }
-        float a = (target.transform.position.x - transform.transform.position.x) * (target.transform.position.x - transform.transform.position.x);
-        float b = (target.transform.position.y - transform.transform.position.y) * (target.transform.position.y - transform.transform.position.y);
-        if(a+b >= max_range) FollowTarget(target);
     }
     void FollowTarget(GameObject target)
     {
@@ -58,7 +61,8 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
-    float MeasurmentError(float number){
+    float MeasurmentError(float number)
+    {
         return number + Random.Range(0.1f, 10f);
     }
 }
