@@ -6,7 +6,7 @@ public class Pickup : MonoBehaviour
 {
     private Inventory inventory;
     public GameObject itemButton;
-    public static string Text = "Gdyby kózka...";
+    public string proverbs_text = "null";
 
     private void Start()
     {
@@ -27,7 +27,6 @@ public class Pickup : MonoBehaviour
                     break;
                 }
             }
-            
-        }    
+        }
     }
 }
