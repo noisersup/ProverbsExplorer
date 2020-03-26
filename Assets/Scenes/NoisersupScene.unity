@@ -425,6 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_hp: 10
   damage: 5
+  cooldown: 2
 --- !u!61 &407391258
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -562,7 +563,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 407391262}
+  damage_system: {fileID: 407391257}
   target: {fileID: 888885545}
+  range_of_view: 5
   max_range: 1.16
 --- !u!58 &407391264
 CircleCollider2D:
@@ -3522,6 +3525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max_hp: 20
   damage: 5
+  cooldown: 2
 --- !u!114 &888885554
 MonoBehaviour:
   m_ObjectHideFlags: 0
