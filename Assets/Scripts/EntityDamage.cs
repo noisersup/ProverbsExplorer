@@ -59,6 +59,8 @@ public class EntityDamage : MonoBehaviour
         if(hp<=0){ Die();}
     }
     public float GetCooldown(){return cooldown;}
+    public float GetCooldownProgress(){return cooldown_progress;}
+    
     public int GetHp(){return hp;}
     public int GetMaxHp(){return max_hp;} 
 

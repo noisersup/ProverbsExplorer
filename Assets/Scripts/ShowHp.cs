@@ -17,14 +17,17 @@ public class ShowHp : MonoBehaviour
         entity = transform.parent.gameObject;
         damage_system = entity.GetComponent<EntityDamage>();
     }
-    void Update(){
+    void Update()
+    {
         FollowEntity();
         UpdateInfo();
     }
-    void FollowEntity(){
+    void FollowEntity()
+    {
         hp_status.transform.position = Camera.main.WorldToScreenPoint(entity.transform.position + (Vector3) offset);
     }
-    void UpdateInfo(){
+    void UpdateInfo()
+    {
         hp_status.text = damage_system.GetHp()+" / "+ damage_system.GetMaxHp();
     }
 }
