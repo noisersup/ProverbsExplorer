@@ -35,7 +35,7 @@ public class EnemyController : MonoBehaviour
                                     ((target.transform.position.y - transform.transform.position.y) * (target.transform.position.y - transform.transform.position.y)));
         if( distance <= range_of_view){
             CooldownTime();
-            if(target_collided && !cooldown_active) 
+            if(target_collided && !cooldown_active && target != null)  
             {
                 AttackTarget(target);
             }

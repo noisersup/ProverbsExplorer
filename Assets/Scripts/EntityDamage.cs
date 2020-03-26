@@ -74,5 +74,8 @@ public class EntityDamage : MonoBehaviour
     void Die()
     {
 	    Destroy(gameObject);
+        if(tag == "Player") {
+            GameObject.FindObjectOfType<DeathScreen>().ShowDeathScreen();
+        }
     }
 }
