@@ -18,6 +18,7 @@ public class GetProverbs : MonoBehaviour
 
     void ReadProverbs()
     {
+        
         CP.image.enabled = true;
         CP.text.enabled = true;
     }
